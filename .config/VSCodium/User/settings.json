@@ -1,0 +1,21 @@
+{
+    // Editor
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+
+    // Terminal
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontSize": 14,
+    "terminal.external.linuxExec": "kitty",
+
+    // Window
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.activityBar.location": "hidden",
+}

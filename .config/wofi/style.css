@@ -1,0 +1,64 @@
+@define-color accent #A9B665;
+@define-color txt #D4BE98;
+@define-color bg #282828;
+
+* {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 14px;
+}
+
+/* Window */
+window {
+    margin: 0px;
+    padding: 10px;
+    border-radius: 0px;
+    background-color: @bg;
+}
+
+/* Inner Box */
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    background-color: @bg;
+}
+
+/* Outer Box */
+#outer-box {
+    margin: 5px;
+    padding: 10px;
+    background-color: @bg;
+}
+
+/* Scroll */
+#scroll {
+    margin: 0px;
+    padding: 10px;
+}
+
+/* Input */
+#input {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 0px;
+    color: @accent;
+}
+
+/* Text */
+#text {
+    margin: 5px;
+    padding: 10px;
+    color: @txt;
+}
+
+/* Selected Entry */
+#entry {
+    border-radius: 0px;
+}
+
+#entry:selected {
+    background-color: @accent;
+}
+
+#entry:selected #text {
+    color: @bg;
+}

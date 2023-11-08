@@ -1,0 +1,113 @@
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: #282828;
+    border-bottom: 3px solid #7C6F64;
+    color: #D4BE98;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #D4BE98;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #D4BE98;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #D4BE98;
+}
+
+#workspaces button.urgent {
+    background-color: #EA6962;
+}
+
+#clock,
+#backlight,
+#network,
+#pulseaudio {
+    padding: 0 10px;
+    color: #282828;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #A9B665;
+}
+
+@keyframes blink {
+    to {
+        background-color: #D4BE98;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #D8A657;
+}
+
+#network {
+    background-color: #E78A4E;
+}
+
+#network.disconnected {
+    background-color: #EA6962;
+}
+
+#pulseaudio {
+    background-color: #89B482;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #EA6962;
+}
+
+#custom-audio_idle_inhibitor {
+    color: #D4BE98;
+    padding: 0 10px;
+}

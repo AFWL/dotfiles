@@ -1,0 +1,10 @@
+show=drun
+normal_window=true
+hide_scroll=true
+allow_images=true
+width=400
+height=400
+always_parse_args=true
+show_all=false
+print_command=true
+insensitive=true
