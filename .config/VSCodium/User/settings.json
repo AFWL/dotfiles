@@ -13,6 +13,8 @@
 
     // Window
     "window.menuBarVisibility": "toggle",
+
+    // Workbench
     "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.editor.empty.hint": "hidden",
     "workbench.iconTheme": "material-icon-theme",

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+## Assuming yay is run by user with UID 1000
+admin="$(id -nu 1000)"
+cachedir="/home/$admin/.cache/yay"
+removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(pacman -Qqm) | xargs -r printf "$cachedir/%s\n")"
+
+## Remove yay cache for foreign packages that are not installed anymore
+rm -rf $removed
+
+pkgcache="$(find $cachedir -mindepth 1 -maxdepth 1 -type d | xargs -r printf "-c %s\n")"
+
+for pkgdir in "$cachedir"/*/; do
+
+    pkgname=$(basename "$pkgdir")
+
+    ## Remove untracked files (e. g. source/build files) excepting package files and main source files for installed version if non-git package
+    if [[ ! "$pkgname" =~ ^.*-git$ ]]; then
+
+        pkgver="$(pacman -Q $pkgname | cut -d ' ' -f2 | cut -d '-' -f1 | cut -d ':' -f2)"
+
+        cd "$pkgdir"
+        rm -f $(git ls-files --others | grep -v -e '^.*\.pkg\.tar.*$' -e '^.*/$' -e "^.*$pkgver.*$" | xargs -r printf "$pkgdir/%s\n")
+
+    fi
+
+    rm -rf "$pkgdir"/src/
+
+done
+
+## Remove everything for uninstalled foreign packages, keep latest version for uninstalled native packages, keep two latest versions for installed packages
+/usr/bin/paccache -qruk0 $pkgcache
+/usr/bin/paccache -qruk0
+/usr/bin/paccache -qrk2 -c /var/cache/pacman/pkg $pkgcache

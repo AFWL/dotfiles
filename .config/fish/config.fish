@@ -24,5 +24,3 @@ function cd
     builtin cd $argv
     ls -la
 end
-
-fish_add_path $HOME/.spicetify
